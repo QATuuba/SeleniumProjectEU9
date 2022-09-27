@@ -1,4 +1,4 @@
-package com.cydeo.tests.day7_webTables_utulities_javafaker;
+package com.cydeo.tests.day7_webTables_utilities_javafaker;
 
 import com.cydeo.tests.base.TestBase;
 import com.cydeo.utilities.BrowserUtilities;

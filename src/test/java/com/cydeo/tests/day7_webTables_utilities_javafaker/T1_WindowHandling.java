@@ -1,4 +1,4 @@
-package com.cydeo.tests.day7_webTables_utulities_javafaker;
+package com.cydeo.tests.day7_webTables_utilities_javafaker;
 
 import com.cydeo.utilities.BrowserUtilities;
 import com.cydeo.utilities.WebDriverFactory;
