@@ -1,5 +1,6 @@
 package com.cydeo.tests.day11_actions_jsexecutor_practic;
 
+import com.cydeo.utilities.BrowserUtilities;
 import com.cydeo.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -16,15 +17,22 @@ public class T1_Circle_Drag_N_Drop {
         //1. Go to https://demos.telerik.com/kendo-ui/dragdrop/index
         Driver.getDriver().get("https://demos.telerik.com/kendo-ui/dragdrop/index");
 
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollBy(0,300)");
+
         //Locate "Accept Cookies" button and click
         WebElement acceptCookiesButton = Driver.getDriver().findElement(By.xpath("//button[@id=\"onetrust-accept-btn-handler\"]"));
         acceptCookiesButton.click();
 
 
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
-        js.executeScript("window.scrollBy(0,300)");
+
+        /*
+        JavascriptExecutor js1 = (JavascriptExecutor) Driver.getDriver();
+        js1.executeScript("window.scrollX");
 
 
+         */
+        BrowserUtilities.sleep(2);
 
         //Locate small and big circles to be able to drag them around
         WebElement smallCircle = Driver.getDriver().findElement(By.xpath("//div[@id=\"draggable\"]"));
@@ -34,16 +42,13 @@ public class T1_Circle_Drag_N_Drop {
 
         Actions actions = new Actions(Driver.getDriver());
 
-        actions.clickAndHold(smallCircle)
-                .pause(2000)
-                .moveToElement(bigCircle)
-                .pause(2000)
-                .release()
-                .perform();
+        /*
+        actions.moveToElement(smallCircle);
+        actions.clickAndHold().perform();
+         */
 
 
-
-       // actions.dragAndDrop(smallCircle, bigCircle).perform();
+        actions.dragAndDrop(smallCircle, bigCircle).perform();
 
         //3. Assert:
         //-Text in big circle changed to: “You did great!”
